@@ -474,3 +474,6 @@ composer.lock
 
 ##### ENVIRONMENT VARIABLES
 .env
+
+##### dont include uploads folder
+/public/uploads
