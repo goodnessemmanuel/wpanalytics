@@ -1,0 +1,58 @@
+//this setup is particular to this project
+ls to this directory:- /etc/apache2/sites-available
+ on the server and do the following 
+ nano with the name wpanalytics.conf
+<VirtualHost *:8>
+ServerName 3.139.138.169 //note that here you are suppose to put the domain name(instead of this ip address here) you bought from namecheap or anyother service providers
+DocumentRoot /var/www/wpanalytics/public
+ServerAdmin admin@3.139.138.169
+ErrorLog ${APACHE_LOG_DIR}/error-wp-analytics.log
+CustomLog ${APACHE_LOG_DIR}/access-wp-analytics.log combined
+
+<Directory /var/www/wpanalytics/public>
+Options Indexes FollowSymLinks Multiviews
+AllowOverride All
+Order allow,deny
+allow from all
+Require all granted
+</Directory>
+
+
+
+</VirtualHost>
+
+//actual backup
+<VirtualHost *:8>
+ServerName 3.139.138.169
+DocumentRoot /var/www/wpanalytics/public
+ServerAdmin admin@3.139.138.169
+ErrorLog ${APACHE_LOG_DIR}/error-wp-analytics.log
+CustomLog ${APACHE_LOG_DIR}/access-wp-analytics.log combined
+
+<Directory /var/www/wpanalytics/public>
+Options Indexes FollowSymLinks Multiviews
+AllowOverride All
+Order allow,deny
+allow from all
+Require all granted
+</Directory>
+
+
+
+</VirtualHost>
+//save and go back to the terminal 
+//to test the configuration, you type this on the command line:- sudo apachectl configtest
+//lookout for syntax OK in the output
+//to enable the site type the following command:-
+a2ensite wpanalytics.conf
+
+/*to install ssl do the following:-
+google certbot for ubuntu 18 (note:- 18 is the version of ubuntu on your server)
+open the first link that pops out on google, and you will see the steps
+the below commands where copied from the site, u can run it instead
+on the terminal, do the underly */
+//note:- I have already done step 1 and 2 but did not complete step 3 because 
+//i am yet to buy a domain and ssl cannot be installed on a raw ip address
+1. sudo add-apt-repository ppa:certbot/certbot
+2. sudo apt install python-certbot-apache
+3. sudo certbot
