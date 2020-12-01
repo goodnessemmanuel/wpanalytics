@@ -1,3 +1,6 @@
 <?php
 
-echo "Welcome to our Site " . date("Y-m-d H:i:s");
+use App\Application;
+require_once("../vendor/autoload.php");
+
+(new Application())->mount();
