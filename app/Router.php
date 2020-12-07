@@ -19,7 +19,6 @@ class Router
     public function __construct()
     {
         $this->serverInfo = $_SERVER;
-        //self::$requestMethod = $this->serverInfo["REQUEST_METHOD"]?? self::$requestMethod;
     }
 
     /**
@@ -49,15 +48,15 @@ class Router
               break;
           }
        }
-       //var_dump($foundRoute);
+
         if($foundRoute) {
             $arguments = explode('@', $foundRoute['callback']);
-            $classController = 'App\\Controllers\\' . $arguments[0];
+            $classController = 'App\\controllers\\' . $arguments[0];
             $targetMethod = $arguments[1];
            return call_user_func_array(array(new $classController, $targetMethod), array());
         }
 
-        $classController = 'App\\Controllers\\NotFoundController';
+        $classController = 'App\\controllers\\NotFoundController';
         return call_user_func_array(array(new $classController, 'index'), array());
     }
 
