@@ -13,7 +13,8 @@
             "App\\": "app/"
         },
         "files": [
-            "core/config.php"
+            "core/config.php",
+            "core/routes.php"
         ]
     }
 }

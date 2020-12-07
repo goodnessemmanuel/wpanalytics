@@ -477,3 +477,9 @@ composer.lock
 
 ##### dont include uploads folder
 /public/uploads
+
+##### dont include node modules and gulp
+node_modules
+
+static/assets
+static/src
