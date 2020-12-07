@@ -1,0 +1,134 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="assets/styles/scss/main.min.css" />
+</head>
+<body>
+    <div class="page-wrapper blur-on-dialogOpen d-flex">
+        <div class="dashboard-sidebar">
+            <div class="menu">
+                <span class="logo-white">
+                    
+                </span>
+                <span class="menu-item">
+                    <a href="/">
+                        <img src="assets/images/svgs/home.svg" alt="">
+                    </a>
+                </span>
+                <span class="menu-item">
+                    <a href="/">
+                        <img src="assets/images/svgs/group.svg" alt="">
+                    </a>
+                </span>
+                <span class="menu-item">
+                    <a href="/">
+                        <img src="assets/images/svgs/settings.svg" alt="">
+                    </a>
+                </span>
+            </div>
+            <div class="signout">
+                <span class="menu-item">
+                    <a href="/">
+                        <img src="assets/images/svgs/logout.svg" alt="">
+                    </a>
+                </span>
+            </div>
+        </div>
+        <div class="dashboard--container--area">
+            <div class="searchbar">
+                <div class="searchbar--author">
+                    <input type="text" class="search--area" placeholder="Search for author">
+                    <button class="search-button"><img src="assets/images/svgs/search-symbol.svg" alt=""> </button>
+                </div>
+                <div class="avatar">
+                    <img src="assets/images/svgs/oval.svg" alt="">
+                </div>
+            </div>
+            <div class="dashboard--container">
+                <div class="dashboard--container--header">
+                    <h2>Settings</h2>
+                </div>
+                <div class="dashboard--content">
+                    <div class="dashboard--content--left">
+                        <div class="menu">
+                            <ul>
+                               <li>
+                                   <a href="/">
+                                        <span><img src="assets/images/svgs/user.svg" alt=""></span>
+                                        <span class="menu-text">Profile Settings</span> 
+                                    </a>
+                               </li> 
+                               <li>
+                                   <a href="/">
+                                        <span><img src="assets/images/svgs/icon-security.svg" alt=""></span>
+                                        <span class="menu-text">Security</span> 
+                                    </a>
+                               </li> 
+                               <li class="active">
+                                   <a href="/">
+                                        <span><img src="assets/images/svgs/icon-weburl.svg" alt=""></span>
+                                        <span class="menu-text">Connect Website(s)</span> 
+                                    </a>
+                               </li> 
+                               <li>
+                                   <a href="/">
+                                        <span><img src="assets/images/svgs/icon-token.svg" alt=""></span>
+                                        <span class="menu-text">Get Token</span> 
+                                    </a>
+                               </li> 
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="dashboard--content--right">
+                        <div class="dashboard--content--header">
+                            <h2>Connect Website</h2>
+                            <p>Add Website to begin tracking</p>
+                        </div>
+                        <div class="dashboard--content--body">
+                            <div class="button-save">
+                                <input id="add-website" type="button" value="Add Website" class="btn btn-primary">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- add author modal -->
+    <div class="modal slide--in"  id="modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <p class="modal-title">Add Website</p>
+                    <p class="toggle-add-author close">
+                        <span>&times;</span>
+                    </p>
+                </div>
+                <div class="modal-body">
+                    <form class="author-form">
+                        <div class="form-group">
+                          <label>Website Url</label>
+                          <input type="text" name="email" class="form-control" placeholder="Enter url">
+                        </div>
+                        <input type="submit" value="Add Author" class="btn btn-primary sign-btn">
+                      </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+  <script src="assets/js/jquery-3.3.1.min.js"></script>
+  <script>
+    $(document).ready(function() {
+        //function open add modal dialog
+        $("body").on("click", "#add-website, .close", function() {
+            $("body").toggleClass("modal--background");
+        });
+    });
+    
+</script>
+</body>
+</html>
